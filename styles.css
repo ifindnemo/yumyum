@@ -1,0 +1,87 @@
+/* styles.css */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Rest of your styles */
+  
+  /* Main content styles */
+  main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  section {
+    flex-basis: 45%;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  /* Game board styles */
+  #game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+  
+  .cell {
+    width: 50px;
+    height: 50px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+  }
+  
+  /* Controls styles */
+  #controls {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
