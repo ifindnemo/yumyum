@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        body {
+            background-color: white;
+        }
+    </style>
     <meta charset="utf-8">
     <title>YumYum Breakfast</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -47,26 +52,22 @@
 	<script src="StreetFighter/js/game.js"></script>
 </head>
 <body>
-    <style>
-        body {
-            background-color: rgb(255, 255, 255);
-        }
-    </style>
+    <div style="background-color: white;"></div>
     <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div class="container d-flex justify-content-between align-items-center" >
             <h1 class="text-primary fw-bold mb-0">YumYum<br>
-            <span class="text-dark" >Breakfast</span></h1>
+            <span class="text-dark">Breakfast</span></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <div class="nav-item dropdown">
+                    <a href="index.html" class="nav-item nav-link active" style="background-color: var(--bs-light)">Home</a>
+                    <div class="nav-item dropdown" style="background-color: var(--bs-light)">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Games</a>
                         <div class="dropdown-menu bg-light">
                             <a href="2048.html" class="dropdown-item">2048</a>
                             <a href="streetfighter.html" class="dropdown-item">Street Fighter</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
+                    <div class="nav-item dropdown" style="background-color: var(--bs-light)">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Movements</a>
                         <div class="dropdown-menu bg-light">
                             <a class="dropdown-item">Player 1 Movement: WASD</a>
@@ -85,4 +86,6 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
     </header>
+    
+    
 </body>
