@@ -51,7 +51,7 @@ function generateResponse(input) {
     } else if (input.includes('dm') || input.includes('địt mẹ') || input.includes('địt con mẹ') || input.includes('địt mẹ mày') || input.includes('địt mẹ m')){
       return "???";
     } else if (input.includes('món nào') || input.includes('món gì') || input.includes('món ăn') || input.includes('món ăn nào') || input.includes('mon nao') || input.includes('mon gi') || input.includes('mon an') || input.includes('mon an nao') || input.includes('menu') || input.includes('thực đơn') || input.includes('thuc don')) {
-      return "Bánh gạo lứt chà bông: 5K. Bánh gạo lứt rong biển: 7K. Xôi cúc: 10K. Bánh mỳ gà: 14K. Bánh mì hoa cúc: 30K.";
+      return "Menu của YumYum Breakfast 🤗 \nBánh gạo lứt chà bông: 5K.\nBánh gạo lứt rong biển: 7K.\nXôi cúc: 10K.\nBánh mỳ gà: 14K.\nBánh mì hoa cúc: 30K.";
     } else if (input.includes('đặt hàng') || input.includes('đặt món') || input.includes('dat mon') || input.includes('dat hang')){
       return "Ok bạn! Liên hệ ngay facebook của mình nhé! https://www.facebook.com/profile.php?id=61555803241596";
     } else if (input.includes('bot ngu') || input.includes('bot ngốc') || input.includes('bot ngu vl') || input.includes('bot ga') || input.includes('bot rac')) {
