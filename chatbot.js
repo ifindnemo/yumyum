@@ -43,7 +43,7 @@ function generateResponse(input) {
 
     // Check for specific words in user input
     if (input.includes('hello') || input.includes('hi') || input.includes('xin chao') || input.includes('chao ban')|| input.includes('xin chào') || input.includes('chào bạn') || input.includes('chào') || input.includes('Konnichiwa')) {
-      return "YumYum Breakfast: Chào bạn, mình có thể giúp gì được?"; 
+      return "Chào bạn, mình có thể giúp gì được?"; 
     } else if (input.includes('help') || input.includes('giúp') || input.includes('giúp mình')) {
       return "Vâng, bạn muốn được hỗ trợ việc gì ạ? 🤔";
     } else if (input.includes('bye') || input.includes('tam biet') || input.includes('tạm biệt') || input.includes('goodbye') || input.includes('good bye') || input.includes('bye bye') || input.includes('byebye')){
