@@ -43,7 +43,7 @@ function generateResponse(input) {
 
     // Check for specific words in user input
     if (input.includes('hello') || input.includes('hi') || input.includes('xin chao') || input.includes('chao ban')|| input.includes('xin chào') || input.includes('chào bạn') || input.includes('chào') || input.includes('Konnichiwa')) {
-      return "Chào bạn, mình có thể giúp gì được?"; 
+      return "Chào bạn, mình có thể giúp gì được? 😊"; 
     } else if (input.includes('help') || input.includes('giúp') || input.includes('giúp mình')) {
       return "Vâng, bạn muốn được hỗ trợ việc gì ạ? 🤔";
     } else if (input.includes('bye') || input.includes('tam biet') || input.includes('tạm biệt') || input.includes('goodbye') || input.includes('good bye') || input.includes('bye bye') || input.includes('byebye')){
@@ -59,7 +59,7 @@ function generateResponse(input) {
     } else {
       // If no specific word is found, return a random response
       const responses = [
-        "YumYum Breakfast: I'm sorry, I didn't understand your question. Could you please rephrase it? 😕",
+        "I'm sorry, I didn't understand your question. Could you please rephrase it? 😕",
         "I'm here to assist you with any questions or concerns you may have. 📩",
         "I'm sorry, I'm not able to browse the internet or access external information. Is there anything else I can help with? 💻",
         "What would you like to know? 🤔",
