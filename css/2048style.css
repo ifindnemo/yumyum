@@ -8,11 +8,10 @@
 
 html,
 body {
-    transform: scale(0.75);
-    transform-origin: 0 0;
+    width: 100%;
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
     color: #776e65;
-    font-size: 18px;
+    font-size: 14px;
     background: rgba(238, 228, 218, 0.5);
     overflow: hidden;
     height: 100%;
@@ -46,8 +45,8 @@ a {
 }
 
 h1.title {
-    font-size: 74px;
-    line-height: 66px;
+    font-size: 55px;
+    line-height: 45px;
     font-weight: bold;
 }
 
@@ -58,10 +57,10 @@ h1.title {
 .score-container,
 .best-container {
     float: left;
-    padding: 3px 20px;
+    padding: 1px 20px;
     background: #bbada0;
-    border-radius: 3px;
-    font-size: 25px;
+    border-radius: 1px;
+    font-size: 22px;
     font-weight: bold;
     color: white;
     text-align: center;
@@ -69,13 +68,13 @@ h1.title {
 
 .score-container {
     position: relative;
-    margin-right: 15px;
-    margin-bottom: 5px;
+    margin-right: 11px;
+    margin-bottom: 0px;
 }
 
 .score-container .title,
 .best-container .title {
-    font-size: 13px;
+    font-size: 11px;
     color: #eee4da;
 }
 
@@ -115,13 +114,15 @@ h2.subtitle {
 }
 
 .game-container {
+    margin: 0 auto;
     position: relative;
-    margin-top: 15px;
-    width: 450px;
-    height: 450px;
+    margin-top: 0px;
+    width: 350px;
+    height: 350px;
     background: #bbada0;
     border-radius: 6px;
     touch-action: none;
+    margin-bottom: 0px;
 }
 
 .grid-container,
@@ -168,7 +169,7 @@ h2.subtitle {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 53px;
+    font-size: 30px;
     font-weight: bold;
     background: #eee4da;
     transition: all 0.15s ease;
@@ -194,12 +195,25 @@ h2.subtitle {
 .tile[data-val="128"],
 .tile[data-val="256"],
 .tile[data-val="512"] {
-    font-size: 45px;
+    font-size: 26px;
+}
+
+.tile[data-val="1024"],
+.tile[data-val="2048"],
+.tile[data-val="4096"],
+.tile[data-val="8192"] {
+    font-size: 22px;
+}
+
+.tile[data-val="16384"],
+.tile[data-val="32768"],
+.tile[data-val="65536"] {
+    font-size: 15px;
 }
 
 .tile[data-val="1024"],
 .tile[data-val="2048"] {
-    font-size: 33px;
+    font-size: 23px;
 }
 
 .tile[data-val="4"] {
