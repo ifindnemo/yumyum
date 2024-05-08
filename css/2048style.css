@@ -8,6 +8,7 @@
 
 html,
 body {
+    transform: scale(1.1);
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
     color: #776e65;
     font-size: 18px;
