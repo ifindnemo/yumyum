@@ -50,11 +50,53 @@ function generateResponse(input) {
       const audio = new Audio('audio/help1.wav');
       audio.play();
       return "Vâng, bạn muốn được hỗ trợ việc gì ạ? 🤔";
+    } else if (input.includes('cảm ơn') || input.includes('cam on') || input.includes('mình cam on') || input.includes('minh cam on') || input.includes('cảm ơn bạn') || input.includes('cam on ban') || input.includes('thank you') || input.includes('thanks') || input.includes('thank') || input.includes('tks') || input.includes('tks ban') || input.includes('tks bạn') || input.includes('tks bạn') || input.includes('tks bạn nhiều') || input.includes('tks ban nhieu') || input.includes('tks bạn nhieu') || input.includes('tks ban nhiều') || input.includes('tks ban nhieu') || input.includes('tks ban nhiều') || input.includes('thanks you')){
+      const tresponses = [
+        "Vâng, không có gì ạ! 😊",
+        "Mình cũng cảm ơn bạn vì đã dành thời gian ghé thăm trang web! 🙏",
+        "Vâng ạ! Mình rất vui vì được giúp đỡ cho bạn!"
+        ];
+        trandom=tresponses[Math.floor(Math.random() * tresponses.length)]
+        final=trandom
+        if (final == "Vâng, không có gì ạ! 😊"){
+          const audio = new Audio('audio/thanks1.wav');
+          audio.play();
+        }
+        if (final == "Mình cũng cảm ơn bạn vì đã dành thời gian ghé thăm trang web! 🙏"){
+          const audio = new Audio('audio/thanks2.wav');
+          audio.play();
+        }
+        if (final == "Vâng ạ! Mình rất vui vì được giúp đỡ cho bạn!"){
+          const audio = new Audio('audio/thanks3.wav');
+          audio.play();
+        }
+        return final;
+    } else if (input.includes('oh man') || input.includes('ohman') || input.includes('ohoh') || input.includes('oh oh')) {
+      const oresponses = [
+      "Ehe...",
+      "Thời tiết hôm nay đẹp thật...",
+      "Bạn có muốn đi tìm One Piece không?"
+      ];
+      orandom=oresponses[Math.floor(Math.random() * oresponses.length)]
+      final=orandom
+      if (final == "Ehe..."){
+        const audio = new Audio('audio/ohman1.wav');
+        audio.play();
+      }
+      if (final == "Thời tiết hôm nay đẹp thật..."){
+        const audio = new Audio('audio/ohman2.wav');
+        audio.play();
+      }
+      if (final == "Bạn có muốn đi tìm One Piece không?"){
+        const audio = new Audio('audio/ohman3.wav');
+        audio.play();
+      }
+      return final;
     } else if (input.includes('bye') || input.includes('tam biet') || input.includes('tạm biệt') || input.includes('goodbye') || input.includes('good bye') || input.includes('bye bye') || input.includes('byebye')){
       const audio = new Audio('audio/bye1.wav');
       audio.play();
       return "Bye Bye! Gặp lại bạn sau nhé! 👋";
-    } else if (input.includes('dm') || input.includes('địt mẹ') || input.includes('địt con mẹ') || input.includes('địt mẹ mày') || input.includes('địt mẹ m')){
+    } else if (input.includes('nege') || input.includes('dm') || input.includes('địt mẹ') || input.includes('địt con mẹ') || input.includes('địt mẹ mày') || input.includes('địt mẹ m')){
       const randomAudio = Math.random() < 0.5 ? 'audio/what1.wav' : 'audio/what2.wav';
       const audio = new Audio(randomAudio);
       audio.play();
@@ -68,7 +110,9 @@ function generateResponse(input) {
       audio.play();
       return "Ok bạn! Liên hệ ngay facebook của mình nhé! https://www.facebook.com/profile.php?id=61555803241596";
     } else if (input.includes('bot ngu') || input.includes('bot ngốc') || input.includes('bot ngu vl') || input.includes('bot ga') || input.includes('bot rac')) {
-      
+      const randomAudio = Math.random() < 0.5 ? 'audio/sorry1.wav' : 'audio/sorry2.wav';
+      const audio = new Audio(randomAudio);
+      audio.play();
       return "Mình xin lỗi ><";
     } else {
       // If no specific word is found, return a random response
@@ -79,15 +123,15 @@ function generateResponse(input) {
       ];
       frandom=responses[Math.floor(Math.random() * responses.length)]
       final=frandom
-      if (frandom == "Xin lỗi, mình không hiểu câu hỏi của bạn. Bạn có thể vui lòng hỏi lại được không ạ? 😕"){
+      if (final== "Xin lỗi, mình không hiểu câu hỏi của bạn. Bạn có thể vui lòng hỏi lại được không ạ? 😕"){
         const audio = new Audio('audio/else1.wav');
         audio.play();
       }
-      if (frandom == "Xin lỗi, mình không thể duyệt internet hoặc truy cập thông tin bên ngoài. Mình có thể giúp gì khác không? 💻"){
+      if (final == "Xin lỗi, mình không thể duyệt internet hoặc truy cập thông tin bên ngoài. Mình có thể giúp gì khác không? 💻"){
         const audio = new Audio('audio/else2.wav');
         audio.play();
       }
-      if (frandom == "Mình sẵn lòng trợ giúp nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào. Chỉ cần cho mình biết làm thế nào để có thể hỗ trợ bạn. 😊"){
+      if (final == "Mình sẵn lòng trợ giúp nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào. Chỉ cần cho mình biết làm thế nào để có thể hỗ trợ bạn. 😊"){
         const audio = new Audio('audio/else3.wav');
         audio.play();
       }
