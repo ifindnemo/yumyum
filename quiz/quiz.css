@@ -1,8 +1,8 @@
 :root {
     --text-color: black;
-    --primary-color: dodgerblue;
-    --neutral: white;
-    --font-size: 1.2rem;
+    --primary-color: rgb(6, 164, 255);
+    --neutral: rgb(255, 255, 255);
+    --font-size: 1rem;
     --text-color2: rgba(0%, 0%, 0%, .2);
     --gray: gray;
   }
