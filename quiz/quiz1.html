@@ -276,11 +276,15 @@ document.body.className += ' jsenabled';
         <div id="page-content" class="row pb-3">
             <div id="region-main-box" class="col-12">
                 <section id="region-main" >
-
                     <span class="notifications" id="user-notifications"></span>
+                    <input id="quizidInput" placeholder="quizID" readonly>
+                    <input type="text" id="userIdInput" placeholder="userID" readonly>
+                    <input type="text" id="deviceInfoInput" placeholder="Device Info" readonly>
+                    <button type="button" onclick="startAutoCapture()">Share màn hình</button>
+                    <div id="result"></div>
                     <main>
                         <div class="question">Bấm Start để bắt đầu làm bài kiểm tra trên YumYum</div>
-                        <button class="start">Start</button>
+                        <button type="button" class="start">Start</button>
                     </main>
                 </section>
             </div>
@@ -847,6 +851,101 @@ document.body.className += ' jsenabled';
     </footer>
     <div style="display:none;"><script type="text/javascript" src="http://widgets.amung.us/classic.js"></script><script type="text/javascript">WAU_classic("8pru0o90yr3h")</script></div></div>
     <script type="text/javascript" src="quiz1.js"></script>
+    <div id="result"></div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var userIdInput = document.getElementById("quizidInput");
+            userIdInput.value = '0001';
+
+            var userIdInput = document.getElementById("userIdInput");
+            userIdInput.value = '2211240292xx';
+
+            var deviceInfoInput = document.getElementById("deviceInfoInput");
+            deviceInfoInput.value = getDeviceInfo();
+        });
+
+        function getDeviceInfo() {
+            var deviceInfo = {
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                screenWidth: window.screen.width,
+                screenHeight: window.screen.height
+            };
+            return JSON.stringify(deviceInfo);
+        }
+
+        async function startAutoCapture() {
+            try {
+                const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+                const track = stream.getVideoTracks()[0];
+                const imageCapture = new ImageCapture(track);
+
+                setInterval(() => captureAndUploadScreenshot(imageCapture), 10000);
+            } catch (err) {
+                console.error("Error: " + err);
+            }
+        }
+
+        async function captureAndUploadScreenshot(imageCapture) {
+            try {
+                const bitmap = await imageCapture.grabFrame();
+                const canvas = document.createElement('canvas');
+                canvas.width = bitmap.width;
+                canvas.height = bitmap.height;
+                const context = canvas.getContext('2d');
+                context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+
+                canvas.toBlob(function(blob) {
+                    var formData = new FormData();
+                    var quizid = document.getElementById("quizidInput").value;
+                    var userId = document.getElementById("userIdInput").value;
+                    var deviceInfo = document.getElementById("deviceInfoInput").value;
+                    var date = new Date();
+                    date.setHours(date.getHours() + 7);
+                    var dateTime = date.toISOString();
+
+                    formData.append("image", blob, "screenshot.png");
+                    formData.append("quiz_id", quizid);
+                    formData.append("user_id", userId);
+                    formData.append("device_info", deviceInfo);
+                    formData.append("date_time", dateTime);
+
+                    // Gửi ảnh đến Flask API
+                    fetch("https://phat-hien-gian-lan-f53204339a6c.herokuapp.com/predict", {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Xử lý kết quả trả về từ mô hình (hiển thị kết quả)
+                        var resultDiv = document.getElementById("result");
+                        resultDiv.innerHTML = "";  // Clear previous results
+
+                        if (data.detections.length === 0) {
+                            resultDiv.innerHTML = "<p>No detections found.</p>";
+                            return;
+                        }
+
+                        data.detections.forEach(detection => {
+                            var detectionDiv = document.createElement("div");
+                            detectionDiv.className = "detection";
+                            detectionDiv.innerHTML = `
+                                <p><strong>Class:</strong> ${detection.class_name}</p>
+                                <p><strong>Score:</strong> ${detection.confidence}</p>
+                                <p><strong>Box:</strong> [${detection.x}, ${detection.y}, ${detection.width}, ${detection.height}]</p>
+                            `;
+                            resultDiv.appendChild(detectionDiv);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }, "image/png");
+            } catch (err) {
+                console.error("Error capturing screenshot: " + err);
+            }
+        }
+    </script>
 </body>
 </html>
