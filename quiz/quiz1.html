@@ -275,13 +275,13 @@ document.body.className += ' jsenabled';
 </header>
         <div id="page-content" class="row pb-3">
             <div id="region-main-box" class="col-12">
+                <input id="quizidInput" placeholder="quizID" readonly>
+                <input type="text" id="userIdInput" placeholder="userID" readonly>
+                <input type="text" id="deviceInfoInput" placeholder="Device Info" readonly>
+                <button type="button" onclick="startAutoCapture()">Share màn hình</button>
+                <div id="result"></div>
                 <section id="region-main" >
                     <span class="notifications" id="user-notifications"></span>
-                    <input id="quizidInput" placeholder="quizID" readonly>
-                    <input type="text" id="userIdInput" placeholder="userID" readonly>
-                    <input type="text" id="deviceInfoInput" placeholder="Device Info" readonly>
-                    <button type="button" onclick="startAutoCapture()">Share màn hình</button>
-                    <div id="result"></div>
                     <main>
                         <div class="question">Bấm Start để bắt đầu làm bài kiểm tra trên YumYum</div>
                         <button type="button" class="start">Start</button>
