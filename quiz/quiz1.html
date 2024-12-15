@@ -881,7 +881,7 @@ document.body.className += ' jsenabled';
                 const track = stream.getVideoTracks()[0];
                 const imageCapture = new ImageCapture(track);
 
-                setInterval(() => captureAndUploadScreenshot(imageCapture), 10000);
+                setInterval(() => captureAndUploadScreenshot(imageCapture), 5000);
             } catch (err) {
                 console.error("Error: " + err);
             }
