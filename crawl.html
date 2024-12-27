@@ -286,7 +286,7 @@
                     const result = await response.json();
                     if (result.success) {
                         console.log("Testing thành công, mật khẩu chính xác.");
-                        sendrequest();
+                        sendrequest(); // gọi hàm sendrequest khi mật khẩu đúng
                     } else {
                         alert(result.message);
                     }
@@ -294,7 +294,7 @@
                     console.error("Error: " + err);
                 }
             }
-        
+                
             function sendrequest() {
                 try {
                     const formData = new FormData();
