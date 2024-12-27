@@ -275,7 +275,8 @@
                 const passwordInput = document.getElementById('password').value;
         
                 try {
-                    const response = fetch('https://tool-scraping-fb-9b8c415ea312.herokuapp.com/check-password', {
+                    // Sử dụng await để đợi phản hồi từ fetch
+                    const response = await fetch('https://tool-scraping-fb-9b8c415ea312.herokuapp.com/check-password', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -283,7 +284,12 @@
                         body: JSON.stringify({ password: passwordInput })
                     });
         
-                    const result = response.json();
+                    // Kiểm tra nếu phản hồi thành công
+                    if (!response.ok) {
+                        throw new Error('Server response error');
+                    }
+        
+                    const result = await response.json();
                     if (result.success) {
                         console.log("Testing thành công, mật khẩu chính xác.");
                         sendrequest(); // gọi hàm sendrequest khi mật khẩu đúng
@@ -294,14 +300,14 @@
                     console.error("Error: " + err);
                 }
             }
-                
+        
             function sendrequest() {
                 try {
                     const formData = new FormData();
                     const groupURL = document.getElementById("GroupURL").value;
                     const numofpost = document.getElementById("numofpost").value;
                     const typeCrawl = document.getElementById("typeCrawl").value;
-
+        
                     const date = new Date();
                     date.setHours(date.getHours() + 7);
                     const dateTime = date.toISOString();
@@ -311,6 +317,7 @@
                     formData.append("type_crawl", typeCrawl);
                     formData.append("date_time", dateTime);
         
+                    // Sử dụng fetch và đợi kết quả trả về
                     fetch("https://tool-scraping-fb-9b8c415ea312.herokuapp.com/crawl", {
                         method: "POST",
                         body: formData
@@ -379,14 +386,16 @@
                     
                         // Kiểm tra trạng thái của tác vụ
                         checkTaskStatus();
-                    });
+                    })
                     .catch(error => {
                         console.error('Error:', error);
                     });
+
                 } catch (err) {
                     console.error('Error:', err);
                 }
             }
         </script>
+
     </body>
 </html>
