@@ -317,51 +317,69 @@
                     })
                     .then(response => response.json())
                     .then(data => {
+                        const taskId = data.task_id;
                         const resultDiv = document.getElementById("result");
-                        resultDiv.innerHTML = "";  // Clear previous results
-        
-                        if (!data || !Array.isArray(data) || data.length === 0) {
-                            resultDiv.innerHTML = "<p>No detections found.</p>";
-                            return;
-                        }
-                        
-                        for (const resultCrawl of data) {
-                            const resultCrawlDiv = document.createElement("div");
-                            resultCrawlDiv.className = "col-lg-6";
-                            resultCrawlDiv.innerHTML = `
-                                <hr>
-                                <h4><strong>ID:</strong></h4> <p class="text-dark fw-bold mb-0">${resultCrawl.id}</p>
-                                <h4><strong>Text-Content:</strong></h4> <p class="text-dark fw-bold mb-0">${resultCrawl['Text-Content']}</p>
-                                <h4><strong>Soluongcmt:</strong></h4> <p class="text-dark fw-bold mb-0">${resultCrawl.Soluongcmt}</p>
-                                <h4><strong>Soluongshare:</strong></h4> <p class="text-dark fw-bold mb-0">${resultCrawl.Soluongshare}</p>
-                                <h4><strong>Like details:</strong></h4>
-                            `;
-
-                            // Add each comment in the Like details list
-                            resultCrawl.Likedetails.forEach(detail => {
-                                const detailParagraph = document.createElement("p");
-                                detailParagraph.className = "text-dark fw-bold mb-0";
-                                detailParagraph.textContent = detail;
-                                resultCrawlDiv.appendChild(detailParagraph);
+                    
+                        // Kiểm tra trạng thái của tác vụ sau khi gửi yêu cầu
+                        const checkTaskStatus = () => {
+                            fetch(`https://tool-scraping-fb-9b8c415ea312.herokuapp.com/task_status/${taskId}`)
+                            .then(response => response.json())
+                            .then(statusData => {
+                                if (statusData.result) {
+                                    // Hiển thị kết quả khi tác vụ đã hoàn thành
+                                    resultDiv.innerHTML = "";  // Clear previous results
+                                    const resultCrawl = statusData.result;
+                    
+                                    // Hiển thị kết quả crawl
+                                    if (!Array.isArray(resultCrawl) || resultCrawl.length === 0) {
+                                        resultDiv.innerHTML = "<p>No detections found.</p>";
+                                        return;
+                                    }
+                    
+                                    // Duyệt qua kết quả và hiển thị
+                                    resultCrawl.forEach(result => {
+                                        const resultCrawlDiv = document.createElement("div");
+                                        resultCrawlDiv.className = "col-lg-6";
+                                        resultCrawlDiv.innerHTML = `
+                                            <hr>
+                                            <h4><strong>ID:</strong></h4> <p class="text-dark fw-bold mb-0">${result.id}</p>
+                                            <h4><strong>Text-Content:</strong></h4> <p class="text-dark fw-bold mb-0">${result['Text-Content']}</p>
+                                            <h4><strong>Soluongcmt:</strong></h4> <p class="text-dark fw-bold mb-0">${result.Soluongcmt}</p>
+                                            <h4><strong>Soluongshare:</strong></h4> <p class="text-dark fw-bold mb-0">${result.Soluongshare}</p>
+                                        `;
+                    
+                                        // Hiển thị Like details
+                                        result.Likedetails.forEach(detail => {
+                                            const detailParagraph = document.createElement("p");
+                                            detailParagraph.className = "text-dark fw-bold mb-0";
+                                            detailParagraph.textContent = detail;
+                                            resultCrawlDiv.appendChild(detailParagraph);
+                                        });
+                    
+                                        // Hiển thị Comments
+                                        const commentsDiv = document.createElement("div");
+                                        commentsDiv.innerHTML = `<h4><strong>Comments:</strong></h4>`;
+                    
+                                        result.Cmts.forEach(comment => {
+                                            const commentParagraph = document.createElement("p");
+                                            commentParagraph.className = "text-dark fw-bold mb-3";
+                                            commentParagraph.textContent = comment;
+                                            commentsDiv.appendChild(commentParagraph);
+                                        });
+                                        resultCrawlDiv.appendChild(commentsDiv);
+                    
+                                        resultDiv.appendChild(resultCrawlDiv);
+                                    });
+                                } else {
+                                    // Nếu tác vụ chưa hoàn thành, kiểm tra lại sau 2 giây
+                                    setTimeout(checkTaskStatus, 2000);
+                                }
                             });
-
-                            // Tạo phần chứa Comments
-                            const commentsDiv = document.createElement("div");
-                            commentsDiv.innerHTML = `<h4><strong>Comments:</strong></h4>`;
-
-                            // Add each comment in the Cmts list
-                            resultCrawl.Cmts.forEach(comment => {
-                                const commentParagraph = document.createElement("p");
-                                commentParagraph.className = "text-dark fw-bold mb-3";
-                                commentParagraph.textContent = comment;
-                                commentsDiv.appendChild(commentParagraph);
-                            });
-                            resultCrawlDiv.appendChild(commentsDiv);
-
-                            resultDiv.appendChild(resultCrawlDiv);
-                            
-                        }
-                    })
+                        };
+                    
+                        // Kiểm tra trạng thái của tác vụ
+                        checkTaskStatus();
+                    });
                     .catch(error => {
                         console.error('Error:', error);
                     });
