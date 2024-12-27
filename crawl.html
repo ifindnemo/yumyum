@@ -275,7 +275,7 @@
                 const passwordInput = document.getElementById('password').value;
         
                 try {
-                    const response = await fetch('https://tool-scraping-fb-9b8c415ea312.herokuapp.com/check-password', {
+                    const response = fetch('https://tool-scraping-fb-9b8c415ea312.herokuapp.com/check-password', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -283,7 +283,7 @@
                         body: JSON.stringify({ password: passwordInput })
                     });
         
-                    const result = await response.json();
+                    const result = response.json();
                     if (result.success) {
                         console.log("Testing thành công, mật khẩu chính xác.");
                         sendrequest(); // gọi hàm sendrequest khi mật khẩu đúng
