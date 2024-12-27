@@ -277,10 +277,7 @@
                 try {
                     const response = await fetch('https://tool-crawl-fb-ac892e6a1763.herokuapp.com/check-password', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ password: passwordInput }),
+                        body: JSON.stringify({ password: passwordInput })
                     });
         
                     const result = await response.json();
@@ -311,7 +308,7 @@
                     formData.append("type_crawl", typeCrawl);
                     formData.append("date_time", dateTime);
         
-                    fetch("http://localhost:5000/crawl", {
+                    fetch("https://tool-crawl-fb-ac892e6a1763.herokuapp.com/crawl", {
                         method: "POST",
                         body: formData
                     })
