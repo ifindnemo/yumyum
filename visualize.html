@@ -1,0 +1,92 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bài tập DATA VISUALIZE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    
+    <!-- Tối ưu tải font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Font với display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+
+    <link rel="stylesheet" href="css/chartstyle-x.css">
+    <link rel="stylesheet" href="css/selectlist-x.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="select-menu">
+            <div class="menu-btn" id="menuBtn">
+                <span class="btn-text">Bạn thích chart nào?</span>
+                <i class="fas fa-caret-down"></i>
+            </div>
+    
+            <ul class="options" id="optionsList">
+                <li class="option" data-chart="chart1">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Doanh số bán hàng theo Mặt hàng</span>
+                </li>
+                <li class="option" data-chart="chart2">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Doanh số bán hàng theo Nhóm hàng</span>
+                </li>
+                <li class="option" data-chart="chart3">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Doanh số bán hàng theo Tháng</span>
+                </li>
+                <li class="option" data-chart="chart4">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Doanh số bán hàng trung bình theo Ngày trong tuần</span>
+                </li>
+                <li class="option" data-chart="chart5">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Doanh số bán hàng trung bình theo Ngày trong tháng</span>
+                </li>
+                <li class="option" data-chart="chart6">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Doanh số bán hàng trung bình theo Khung giờ</span>
+                </li>
+                <li class="option" data-chart="chart7">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Xác suất bán hàng theo Nhóm hàng</span>
+                </li>
+                <li class="option" data-chart="chart8">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Xác suất bán hàng của Nhóm hàng theo Tháng</span>
+                </li>
+                <li class="option" data-chart="chart9">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Xác suất bán hàng của Mặt hàng theo Nhóm hàng</span>
+                </li>
+                <li class="option" data-chart="chart10">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Xác suất bán hàng của Mặt hàng theo Nhóm hàng theo Tháng</span>
+                </li>
+                <li class="option" data-chart="chart11">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Phân phối Lượt mua hàng</span>
+                </li>
+                <li class="option" data-chart="chart12">
+                    <i class="fa-regular fa-circle-right" style="color: #171515"></i>
+                    <span class="option-text">Phân phối Mức chi trả của Khách hàng</span>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <h2>Doanh số bán hàng theo Mặt hàng</h2>
+            <div class="chart" id="chart"></div>
+        </div>
+    </div>
+    <script src="js/final_script.js"></script>
+    <script src="js/final_selectlist.js"></script>
+    <script src="js/run.js"></script>
+</body>
+</html>
