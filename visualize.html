@@ -30,7 +30,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 </head>
 <body>
-    
     <div class="main">
         <div class="select-menu">
             <div class="menu-btn" id="menuBtn">
@@ -41,51 +40,63 @@
             <ul class="options" id="optionsList">
                 <li class="option" data-chart="chart1">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Doanh số bán hàng theo Mặt hàng</span>
+                    <p>Q1</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Doanh số bán hàng theo Mặt hàng</span>
                 </li>
                 <li class="option" data-chart="chart2">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Doanh số bán hàng theo Nhóm hàng</span>
+                    <p>Q2</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Doanh số bán hàng theo Nhóm hàng</span>
                 </li>
                 <li class="option" data-chart="chart3">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Doanh số bán hàng theo Tháng</span>
+                    <p>Q3</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Doanh số bán hàng theo Tháng</span>
                 </li>
                 <li class="option" data-chart="chart4">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Doanh số bán hàng trung bình theo Ngày trong tuần</span>
+                    <p>Q4</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Doanh số bán hàng trung bình theo Ngày trong tuần</span>
                 </li>
                 <li class="option" data-chart="chart5">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Doanh số bán hàng trung bình theo Ngày trong tháng</span>
+                    <p>Q5</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Doanh số bán hàng trung bình theo Ngày trong tháng</span>
                 </li>
                 <li class="option" data-chart="chart6">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Doanh số bán hàng trung bình theo Khung giờ</span>
+                    <p>Q6</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Doanh số bán hàng trung bình theo Khung giờ</span>
                 </li>
                 <li class="option" data-chart="chart7">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Xác suất bán hàng theo Nhóm hàng</span>
+                    <p>Q7</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Xác suất bán hàng theo Nhóm hàng</span>
                 </li>
                 <li class="option" data-chart="chart8">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Xác suất bán hàng của Nhóm hàng theo Tháng</span>
+                    <p>Q8</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Xác suất bán hàng của Nhóm hàng theo Tháng</span>
                 </li>
                 <li class="option" data-chart="chart9">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Xác suất bán hàng của Mặt hàng theo Nhóm hàng</span>
+                    <p>Q9</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Xác suất bán hàng của Mặt hàng theo Nhóm hàng</span>
                 </li>
                 <li class="option" data-chart="chart10">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Xác suất bán hàng của Mặt hàng theo Nhóm hàng theo Tháng</span>
+                    <p>Q10</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Xác suất bán hàng của Mặt hàng theo Nhóm hàng theo Tháng</span>
                 </li>
                 <li class="option" data-chart="chart11">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Phân phối Lượt mua hàng</span>
+                    <p>Q11</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Phân phối Lượt mua hàng</span>
                 </li>
                 <li class="option" data-chart="chart12">
                     <i class="fa-regular fa-circle-right" style="color: #171515"></i>
-                    <span class="option-text">Phân phối Mức chi trả của Khách hàng</span>
+                    <p>Q12</p>
+                    <span class="option-text" style="margin-left: 10px; font-size: 14px;">Phân phối Mức chi trả của Khách hàng</span>
                 </li>
             </ul>
         </div>
@@ -93,6 +104,9 @@
             <h2>Doanh số bán hàng theo Mặt hàng</h2>
             <div class="chart" id="chart"></div>
         </div>
+    </div>
+    <div class="main">
+        <div class="bigchart" id="chart"></div>
     </div>
     <script src="js/final_script.js"></script>
     <script src="js/final_selectlist.js"></script>
